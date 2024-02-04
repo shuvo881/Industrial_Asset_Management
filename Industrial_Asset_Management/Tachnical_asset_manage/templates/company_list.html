@@ -1,0 +1,46 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block content %}
+  <h2>Companies</h2>
+  <ol>
+    {% for company in companies %}
+      <li>
+        {{ company.name }} 
+        <a style="margin-left: 3rem; color: green;" href="{% url 'company_details' company.pk %}"> 
+          More details
+        </a>
+        <a style="margin-left: 3rem; color: blue;" href="{% url 'company_update' company.pk %}"> 
+          Edit
+        </a>
+        <a style="margin-left: 3rem; color: red;" href="{% url 'company_delete' company.pk %}"> 
+          Delete
+        </a>
+      </li>
+      <hr>
+    {% endfor %}
+  </ol>
+  <div>
+    <a href="{% url 'company_create' %}"> create company</a>
+  </div>
+  
+<br>
+  <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block content %}
+  <h2>Devices</h2>
+  <ol>
+    {% for device in devices %}
+      <li>
+        {{ device.name }} 
+        <a style="margin-left: 3rem; color: green;" href="{% url 'device_details' device.pk %}"> 
+          More details
+        </a>
+        <a style="margin-left: 3rem; color: blue;" href="{% url 'device_update' device.pk %}"> 
+          Edit
+        </a>
+        <a style="margin-left: 3rem; color: red;" href="{% url 'device_delete' device.pk %}"> 
+          Delete
+        </a>
+      </li>
+      <hr>
+    {% endfor %}
+  </ol>
+  <div>
+    <a href="{% url 'device_create' %}"> create device</a>
+  </div>
+  
+<br>
+  <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+
+{% endblock %}

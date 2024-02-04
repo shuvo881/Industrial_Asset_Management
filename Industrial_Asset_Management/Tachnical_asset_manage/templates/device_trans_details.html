@@ -1,0 +1,22 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block content %}
+  <h2>Device Transection Details</h2>
+  <dl>
+      <dt>Name: </dt>
+      <dd>{{ device_transection.device_name}}</dd>
+      <dt>Employeer Name:</dt>
+      <dd>{{device_transection.employee_name}}</dd>
+      <dt>Checkout Time:</dt>
+      <dd>{{device_transection.checkout_time}}</dd>
+      <dt>Chekin Time:</dt>
+      <dd>{{device_transection.checkin_time}}</dd>
+      <dt>Condition</dt>
+      <dd>{{device_transection.condition_on_checkout}}</dd>
+
+
+
+
+  </dl>
+  <a href="{% url '/apis/' %}">Back to Company List</a>
+{% endblock %}

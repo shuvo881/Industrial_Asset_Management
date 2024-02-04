@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Company, Employee, Device
+from .models import Company, Employee, Device, DeviceTransection
 
 # Serializer for the Company model
 class CompanySerializer(serializers.ModelSerializer):
@@ -17,4 +17,9 @@ class EmployeeSerializer(serializers.ModelSerializer):
 class DeviceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Device
+        fields = '__all__'
+
+class DeviceTransectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DeviceTransection
         fields = '__all__'

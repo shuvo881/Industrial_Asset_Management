@@ -1,0 +1,12 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block content %}
+  <h2>Company Details</h2>
+  <dl>
+    <dt>Name:</dt>
+    <dd>{{ company.name }}</dd>
+    <dt>Description:</dt>
+    <dd>{{ company.description }}</dd>
+  </dl>
+  <a href="{% url 'company_list' %}">Back to Company List</a>
+{% endblock %}

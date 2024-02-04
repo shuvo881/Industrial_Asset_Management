@@ -1,0 +1,21 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block content %}
+  <h2>Employee Details</h2>
+  <dl>
+      <dt>Name: </dt>
+      <dd>{{ employee.name }}</dd>
+      <dt>Company:</dt>
+      <dd>{{employee.company}}</dd>
+      <dt>Present Adress:</dt>
+      <dd>{{employee.present_address}}</dd>
+      <dt>Permanent Adress:</dt>
+      <dd>{{employee.permanent_present_address}}</dd>
+      <dt>Age:</dt>
+      <dd>{{employee.age}}</dd>
+      <dt>Sex:</dt>
+      <dd>{{employee.sex}}</dd>
+
+  </dl>
+  <a href="{% url 'employee_list' %}">Back to Company List</a>
+{% endblock %}
